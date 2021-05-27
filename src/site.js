@@ -1,22 +1,40 @@
-const content = document.querySelector('#content');
+import test from "./shoes";
+
+const containers = (() => {
+    const content = document.querySelector('#content');
+    const container = document.createElement('div');
+    container.id = 'container';
+    content.appendChild(container);
+
+    return {content, container};
+})();
 
 function navLogo (nav){
     const logoContainer = document.createElement('div');
     const logo = document.createElement('a');
     logo.classList.add('navLink');
     logo.id = 'logo';
-    logo.textContent = 'Logo';
+    logo.textContent = 'adidas';
     logo.href = '#';
     nav.appendChild(logoContainer);
     logoContainer.appendChild(logo);
+    logo.addEventListener('click', () => {
+        const h1 = document.getElementById('adidas');
+        if (!containers.container.contains(h1)) {
+            containers.container.innerHTML = '';
+            adidas();
+        }
+        else return;
+    });
 }
 
-function menuNav (nav) {
-    const menu = document.createElement('a');
-    menu.classList.add('navLink');
-    menu.textContent = 'Menu';
-    menu.href = '#';
-    nav.appendChild(menu);
+function shoesNav (nav) {
+    const shoes = document.createElement('a');
+    shoes.classList.add('navLink');
+    shoes.textContent = 'Shoes';
+    shoes.href = '#';
+    nav.appendChild(shoes);
+    shoes.addEventListener('click', test);
 }
 
 function contactNav (nav) {
@@ -41,7 +59,7 @@ function navbar () {
     navbar.classList.add('navbar');
     content.appendChild(navbar);
     navLogo(navbar);
-    menuNav(navlinkContainer);
+    shoesNav(navlinkContainer);
     contactNav(navlinkContainer);
     aboutNav(navlinkContainer);
     navbar.appendChild(navlinkContainer);
@@ -50,14 +68,22 @@ function navbar () {
 function background () {
     const background = document.createElement('img');
     background.id = 'background';
-    background.src = '/dist/images/wp7910550-yoasobi-wallpapers.jpg';
-    content.appendChild(background);
+    background.src = '/dist/images/wilhelm-gunkel-AqERXpVlewg-unsplash.jpg';
+    containers.content.appendChild(background);
+}
+
+function adidas () {
+    const adidas = document.createElement('h1');
+    adidas.id = 'adidas';
+    adidas.textContent = 'adidas.';
+    containers.container.appendChild(adidas);
 }
 
 function fb (socialContainer) {
     const fb = document.createElement('a');
     fb.textContent = 'FB';
     fb.href = '#';
+    fb.id = 'fb';
     fb.classList.add('socials');
     socialContainer.appendChild(fb);
 }
@@ -66,6 +92,7 @@ function tw (socialContainer) {
     const tw = document.createElement('a');
     tw.textContent = 'TW';
     tw.href = '#';
+    tw.id = 'tw';
     tw.classList.add('socials');
     socialContainer.appendChild(tw);
 }
@@ -74,6 +101,7 @@ function ig (socialContainer) {
     const ig = document.createElement('a');
     ig.textContent = 'IG';
     ig.href = '#';
+    ig.id = 'ig';
     ig.classList.add('socials');
     socialContainer.appendChild(ig);
 }
@@ -84,13 +112,18 @@ function socials () {
     fb(socialContainer);
     tw(socialContainer);
     ig(socialContainer);
-    content.appendChild(socialContainer);
+    containers.content.appendChild(socialContainer);
 }
 
-function renderSite () {
+function renderTemplate () {
     navbar();
     background();
     socials();
 }
 
-export default renderSite;
+function renderSite () {
+    renderTemplate();
+    adidas();
+}
+
+export {containers, renderSite};

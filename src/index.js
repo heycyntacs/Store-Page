@@ -1,3 +1,3 @@
-import renderSite from "./site";
+import {renderSite} from "./site";
 
 renderSite();
