@@ -1,4 +1,4 @@
-import test from "./shoes";
+import renderShoes from "./shoes";
 
 const containers = (() => {
     const content = document.querySelector('#content');
@@ -34,7 +34,7 @@ function shoesNav (nav) {
     shoes.textContent = 'Shoes';
     shoes.href = '#';
     nav.appendChild(shoes);
-    shoes.addEventListener('click', test);
+    shoes.addEventListener('click', renderShoes);
 }
 
 function contactNav (nav) {
