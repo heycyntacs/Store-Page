@@ -45,13 +45,14 @@
     width: 100%;
     filter: brightness(70%);
     pointer-events: none;
+    z-index: -2;
 }
 
 #container {
     position: absolute;
     top: 45%;
     left: 50%;
-    transform: translate(-45%, -50%);
+    transform: translate(-50%, -45%);
     z-index: 1;
     transition: 0.5s;
 }
@@ -89,11 +90,84 @@
     color:mediumvioletred;
 }
 
+.shoes {
+    display: flex;
+    animation: shoes-load 1.5s;
+}
+
+.shoes-details {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    margin: 50px;
+    pointer-events: none;
+}
+
+.shoes-name {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 1;
+}
+
+.shoes-img {
+    height: 300px;
+    width: 300px;
+}
+
+.contact-info {
+    color: white;
+    animation: load 1s;
+}
+
+.fb-head{
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.fb-head:hover {
+    color: rgb(58, 58, 255);
+}
+
+.contact-info p {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+.about {
+    color: white;
+    width: 500px;
+    animation: load 1s;
+}
+
+.about h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
 @keyframes load {
     from {
         opacity: 0;
     }
     to {
+        opacity: 1;
+    }
+}
+
+@keyframes shoes-load {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
         opacity: 1;
     }
 }

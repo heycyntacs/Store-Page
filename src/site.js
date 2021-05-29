@@ -1,3 +1,5 @@
+import renderAbout from "./about";
+import renderContact from "./contact";
 import renderShoes from "./shoes";
 
 const containers = (() => {
@@ -20,11 +22,8 @@ function navLogo (nav){
     logoContainer.appendChild(logo);
     logo.addEventListener('click', () => {
         const h1 = document.getElementById('adidas');
-        if (!containers.container.contains(h1)) {
-            containers.container.innerHTML = '';
-            adidas();
-        }
-        else return;
+        if (!containers.container.contains(h1)) adidas();
+        return;
     });
 }
 
@@ -34,7 +33,10 @@ function shoesNav (nav) {
     shoes.textContent = 'Shoes';
     shoes.href = '#';
     nav.appendChild(shoes);
-    shoes.addEventListener('click', renderShoes);
+    shoes.addEventListener('click', () => {
+        if(containers.container.innerHTML.includes('shoes')) return;
+        renderShoes();
+    });
 }
 
 function contactNav (nav) {
@@ -43,6 +45,10 @@ function contactNav (nav) {
     location.textContent = 'Contact';
     location.href = '#';
     nav.appendChild(location);
+    location.addEventListener('click', () => {
+        if (containers.container.innerHTML.includes('contact')) return;
+        renderContact();
+    });
 }
 
 function aboutNav (nav) {
@@ -51,6 +57,10 @@ function aboutNav (nav) {
     about.textContent = 'About';
     about.href = '#';
     nav.appendChild(about);
+    about.addEventListener('click', () => {
+        if (containers.container.innerHTML.includes('about')) return;
+        renderAbout();
+    });
 }
 
 function navbar () {
@@ -73,6 +83,7 @@ function background () {
 }
 
 function adidas () {
+    containers.container.innerHTML = '';
     const adidas = document.createElement('h1');
     adidas.id = 'adidas';
     adidas.textContent = 'adidas.';
@@ -82,7 +93,7 @@ function adidas () {
 function fb (socialContainer) {
     const fb = document.createElement('a');
     fb.textContent = 'FB';
-    fb.href = '#';
+    fb.href = 'https://www.facebook.com/adidasPH/';
     fb.id = 'fb';
     fb.classList.add('socials');
     socialContainer.appendChild(fb);
@@ -91,7 +102,7 @@ function fb (socialContainer) {
 function tw (socialContainer) {
     const tw = document.createElement('a');
     tw.textContent = 'TW';
-    tw.href = '#';
+    tw.href = 'https://twitter.com/adidas';
     tw.id = 'tw';
     tw.classList.add('socials');
     socialContainer.appendChild(tw);
@@ -100,7 +111,7 @@ function tw (socialContainer) {
 function ig (socialContainer) {
     const ig = document.createElement('a');
     ig.textContent = 'IG';
-    ig.href = '#';
+    ig.href = 'https://www.instagram.com/adidas/';
     ig.id = 'ig';
     ig.classList.add('socials');
     socialContainer.appendChild(ig);
