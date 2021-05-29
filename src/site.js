@@ -57,7 +57,7 @@ function navbar () {
     const navbar = document.createElement('section');
     const navlinkContainer = document.createElement('div');
     navbar.classList.add('navbar');
-    content.appendChild(navbar);
+    containers.content.appendChild(navbar);
     navLogo(navbar);
     shoesNav(navlinkContainer);
     contactNav(navlinkContainer);
