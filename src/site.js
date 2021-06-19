@@ -78,7 +78,7 @@ function navbar () {
 function background () {
     const background = document.createElement('img');
     background.id = 'background';
-    background.src = '/dist/images/wilhelm-gunkel-AqERXpVlewg-unsplash.JPG';
+    background.src = '/dist/images/Background.JPG';
     containers.content.appendChild(background);
 }
 
