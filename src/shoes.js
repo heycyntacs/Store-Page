@@ -5,8 +5,8 @@ function createDiv() {
     shoesDiv.classList.add(`shoes`);
 
     shoesDiv.appendChild(createDetails('SUPERSTAR'));
-    shoesDiv.appendChild(createDetails('ZX 4000 4D SHOES'));
-    shoesDiv.appendChild(createDetails('4D FUSIO SHOES'));
+    shoesDiv.appendChild(createDetails('ZX-4000-4D-SHOES'));
+    shoesDiv.appendChild(createDetails('4D-FUSIO-SHOES'));
     
     containers.container.appendChild(shoesDiv);
 }
