@@ -22,7 +22,7 @@ function createDetails(name) {
 
     const shoesImg = document.createElement('img');
     shoesImg.classList.add('shoes-img');
-    shoesImg.src = `../dist/images/shoes/${name.toLowerCase()}.jpg`;
+    shoesImg.src = `images/shoes/${name.toLowerCase()}.jpg`;
 
     shoesDetails.appendChild(shoesName);
     shoesDetails.appendChild(shoesImg);

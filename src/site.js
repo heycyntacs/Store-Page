@@ -78,7 +78,7 @@ function navbar () {
 function background () {
     const background = document.createElement('img');
     background.id = 'background';
-    background.src = '../dist/images/background.jpg';
+    background.src = 'images/background.jpg';
     containers.content.appendChild(background);
 }
 
